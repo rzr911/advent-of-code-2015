@@ -1,7 +1,8 @@
 pub mod fourth_problem {
     use md5;
     use std::io::{self, prelude::*, BufReader};
-    use regex::Regex;
+    use fancy_regex::Regex;
+
     use rayon::prelude::*;
     
     pub fn first_part() -> io::Result<()> {
@@ -39,7 +40,7 @@ pub mod fourth_problem {
     }
 
     pub fn is_hash_valid(hash: String, valid_regex: &Regex) -> bool{
-        return valid_regex.is_match(&hash);
+        return valid_regex.is_match(&hash).unwrap();
     }
 }
 
